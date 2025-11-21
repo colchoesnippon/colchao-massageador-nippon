@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Truck, ShieldCheck } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const registrarConversaoWhatsApp = () => {
+    console.log("WhatsApp click registered");
+  };
+
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black pt-12 md:pt-16 pb-20">
       {/* Ambient Glow */}
