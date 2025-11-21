@@ -31,6 +31,15 @@ const reviews = [
     img: "https://colchoesnippon.com.br/wp-content/uploads/2025/01/02-cliente-satisfeito-colchao-magnetico-massageador-nippon-flex-preco-casal.jpg" // Bedroom context
   },
   {
+    id: 3,
+    name: "Dr. Cleverson",
+    location: "Ivaiporã, PR",
+    text: "Eu e minha esposa estamos muito satisfeitos com o colchão da Nippon. Qualidade impecável! Ótimo atendimento do vendedor Maycon, desde a cotação até o pós venda. Super recomendo!",
+    date: "Há 10 dias",
+    stars: 5,
+    img: "https://colchoesnippon.com.br/wp-content/uploads/2025/11/Cleverson-cliente-satisfeito-colchao-magnetico-massageador-nippon-flex-preco-casal.jpg" // Bedroom context
+  },
+  {
     id: 4,
     name: "Fernanda & Ricardo",
     location: "Rio de Janeiro, RJ",
