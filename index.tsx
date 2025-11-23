@@ -1,4 +1,8 @@
-// Adiciona Google Tag no <head> de forma garantida
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+// Google Tag
 const script1 = document.createElement("script");
 script1.async = true;
 script1.src = "https://www.googletagmanager.com/gtag/js?id=AW-955599478";
@@ -12,11 +16,6 @@ script2.innerHTML = `
   gtag('config', 'AW-955599478');
 `;
 document.head.appendChild(script2);
-
-// React
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
