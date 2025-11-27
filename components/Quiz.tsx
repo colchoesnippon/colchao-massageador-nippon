@@ -70,6 +70,12 @@ const Quiz: React.FC = () => {
       `Gostaria de saber os valores e condições.`;
     
     const url = `https://wa.me/5543988688677?text=${encodeURIComponent(text)}`;
+    
+    // Dispara a conversão antes de abrir o link
+    if (typeof (window as any).gtag_report_conversion === 'function') {
+      (window as any).gtag_report_conversion();
+    }
+    
     window.open(url, '_blank');
   };
 

@@ -111,6 +111,11 @@ const PurchaseSteps: React.FC = () => {
               href="https://wa.me/5543988688677?text=Olá! Gostaria de tirar dúvidas sobre o processo de compra."
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => {
+                if (typeof (window as any).gtag_report_conversion === 'function') {
+                  (window as any).gtag_report_conversion();
+                }
+              }}
               className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 font-medium transition-colors border-b border-amber-500/30 hover:border-amber-500 pb-1 cursor-pointer bg-transparent"
             >
               Ficou com alguma dúvida? Fale conosco <ArrowRight size={16} />

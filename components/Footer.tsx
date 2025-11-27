@@ -15,6 +15,11 @@ const Footer: React.FC = () => {
             href="https://wa.me/5543988688677"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => {
+              if (typeof (window as any).gtag_report_conversion === 'function') {
+                (window as any).gtag_report_conversion();
+              }
+            }}
             className="mt-8 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-200 transition-all flex items-center gap-2 group cursor-pointer inline-flex"
           >
             Falar com um especialista <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
@@ -80,7 +85,17 @@ const Footer: React.FC = () => {
                       Ivaiporã – Paraná, CEP: 86870-000
                     </span>
                  </a>
-                 <a href="https://wa.me/5543988688677" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group/link">
+                 <a 
+                    href="https://wa.me/5543988688677" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onClick={(e) => {
+                      if (typeof (window as any).gtag_report_conversion === 'function') {
+                        (window as any).gtag_report_conversion();
+                      }
+                    }}
+                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group/link"
+                 >
                     <Phone className="text-zinc-600 group-hover/link:text-amber-500 transition-colors" size={20} />
                     <span className="text-sm font-medium">43 98868-8677</span>
                  </a>
