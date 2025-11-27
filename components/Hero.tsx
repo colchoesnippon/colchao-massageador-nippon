@@ -3,10 +3,6 @@ import { motion } from 'framer-motion';
 import { ChevronRight, Truck, ShieldCheck } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const registrarConversaoWhatsApp = () => {
-    console.log("WhatsApp click registered");
-  };
-
   return (
     <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-black pt-12 md:pt-16 pb-20">
       {/* Ambient Glow */}
@@ -91,27 +87,26 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-{/* CTA Buttons */}
-<motion.div
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.5, delay: 0.7 }}
-  className="flex flex-col items-center"
->
-  <a 
-    href="https://wa.me/5543988688677?text=Olá! Vi a oferta de 12x 249 no site e gostaria de aproveitar." 
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={() => registrarConversaoWhatsApp()}
-    className="group relative bg-[#25D366] text-black font-bold px-10 py-5 rounded-full hover:bg-[#20bd5a] transition-all flex items-center gap-3 text-lg md:text-xl shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_50px_rgba(37,211,102,0.6)] hover:-translate-y-1"
-  >
-    Receber Oferta Agora <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
-  </a>
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="flex flex-col items-center"
+        >
+          <a
+            href="https://wa.me/5543988688677?text=Olá! Vi a oferta de 12x 249 no site e gostaria de aproveitar."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative bg-[#25D366] text-black font-bold px-10 py-5 rounded-full hover:bg-[#20bd5a] transition-all flex items-center gap-3 text-lg md:text-xl shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_50px_rgba(37,211,102,0.6)] hover:-translate-y-1 cursor-pointer"
+          >
+            Receber Oferta Agora <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
+          </a>
 
-  <p className="text-gray-500 text-xs mt-6 opacity-60 hover:opacity-100 transition-opacity cursor-default">
-    *Promoção por tempo limitado. Consulte condições.
-  </p>
-</motion.div>
+          <p className="text-gray-500 text-xs mt-6 opacity-60 hover:opacity-100 transition-opacity cursor-default">
+            *Promoção por tempo limitado. Consulte condições.
+          </p>
+        </motion.div>
 
         {/* Mockup visual representing the mattress */}
         <motion.div

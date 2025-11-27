@@ -20,6 +20,6 @@ export interface QuizData {
   baseType: string;
   comfortProfile: string;
   needs: string;
-  name: string;
-  whatsapp: string;
+  name?: string;
+  whatsapp?: string;
 }

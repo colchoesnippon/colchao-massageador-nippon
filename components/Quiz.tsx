@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ArrowLeft, CheckCircle, Lock, User, Phone, FileText } from 'lucide-react';
+import { ChevronRight, ArrowLeft, CheckCircle, FileText, ArrowRight } from 'lucide-react';
 import { QuizData } from '../types';
 
 const questions = [
@@ -60,29 +60,17 @@ const Quiz: React.FC = () => {
     if (step > 0) setStep(step - 1);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAnswers({ ...answers, [e.target.name]: e.target.value });
-  };
-
-  const sendToWhatsApp = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!answers.name || !answers.whatsapp) {
-      alert("Por favor, preencha todos os campos.");
-      return;
-    }
-
-    const text = `Olá! Realizei o diagnóstico no site e gostaria de ver meu resultado e valores com condição especial.\n\n` +
-      `*📋 Meu Perfil:*\n` +
+  const sendToWhatsApp = () => {
+    const text = `Olá! Fiz o diagnóstico no site e este é o meu perfil ideal:\n\n` +
+      `*📋 Resultado do Diagnóstico:*\n` +
       `*Medida:* ${answers.size}\n` +
       `*Configuração:* ${answers.baseType}\n` +
       `*Conforto:* ${answers.comfortProfile}\n` +
       `*Necessidade:* ${answers.needs}\n\n` +
-      `*👤 Meus Dados:*\n` +
-      `*Nome:* ${answers.name}\n` +
-      `*WhatsApp:* ${answers.whatsapp}`;
+      `Gostaria de saber os valores e condições.`;
     
-    window.open(`https://wa.me/5543988688677?text=${encodeURIComponent(text)}`, '_blank');
+    const url = `https://wa.me/5543988688677?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -125,7 +113,7 @@ const Quiz: React.FC = () => {
           {/* Navigation Header */}
           <div className="flex items-center justify-between mb-8">
             <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">
-              {isFormStep ? 'Passo Final' : `Diagnóstico — Passo ${step + 1}/${questions.length}`}
+              {isFormStep ? 'Resumo Final' : `Diagnóstico — Passo ${step + 1}/${questions.length}`}
             </span>
             {(step > 0 || isFormStep) && (
               <button onClick={handleBack} className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 text-sm">
@@ -169,50 +157,35 @@ const Quiz: React.FC = () => {
                   className="w-full"
                 >
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 text-green-500 mb-4 ring-1 ring-green-500/30 animate-pulse">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 text-green-500 mb-4 ring-1 ring-green-500/30">
                       <CheckCircle size={32} />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">Tudo Pronto!</h3>
+                    <h3 className="text-3xl font-bold text-white mb-2">Perfil Identificado!</h3>
                     <p className="text-gray-400 max-w-md mx-auto">
-                      Para liberar seu <span className="text-amber-400 font-bold">desconto exclusivo</span> para o tamanho <strong>{answers.size}</strong>, preencha abaixo:
+                      Com base nas suas respostas, selecionamos a condição ideal para você.
                     </p>
                   </div>
 
-                  <form onSubmit={sendToWhatsApp} className="space-y-4 max-w-md mx-auto">
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
-                      <input 
-                        type="text" 
-                        name="name"
-                        required
-                        placeholder="Seu Nome Completo"
-                        onChange={handleInputChange}
-                        className="w-full bg-zinc-900/80 border border-zinc-700 rounded-xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder-zinc-600"
-                      />
-                    </div>
-                    <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
-                      <input 
-                        type="tel" 
-                        name="whatsapp"
-                        required
-                        placeholder="Seu WhatsApp com DDD"
-                        onChange={handleInputChange}
-                        className="w-full bg-zinc-900/80 border border-zinc-700 rounded-xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all placeholder-zinc-600"
-                      />
-                    </div>
-                    
-                    <button 
-                      type="submit"
-                      className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black text-lg font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg shadow-green-900/20 flex items-center justify-center gap-2"
-                    >
-                      Ver Tabela de Preços <ChevronRight size={20} />
-                    </button>
+                  {/* Summary Card */}
+                  <div className="bg-white/5 rounded-2xl p-6 mb-8 border border-white/10 max-w-md mx-auto">
+                    <h4 className="text-amber-500 text-xs font-bold uppercase tracking-wider mb-4 border-b border-white/10 pb-2">Resumo da sua escolha</h4>
+                    <ul className="space-y-3">
+                      <SummaryItem label="Tamanho" value={answers.size || '-'} />
+                      <SummaryItem label="Configuração" value={answers.baseType || '-'} />
+                      <SummaryItem label="Conforto" value={answers.comfortProfile || '-'} />
+                      <SummaryItem label="Necessidade" value={answers.needs || '-'} />
+                    </ul>
+                  </div>
 
-                    <div className="flex items-center justify-center gap-2 text-xs text-zinc-600 mt-4">
-                      <Lock size={12} /> Seus dados estão seguros e não enviaremos spam.
-                    </div>
-                  </form>
+                  <div className="max-w-md mx-auto">
+                    <button 
+                      onClick={sendToWhatsApp}
+                      className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black text-lg font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg shadow-green-900/20 flex items-center justify-center gap-2 group"
+                    >
+                      Ver Preço no WhatsApp <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+
                 </motion.div>
               )}
             </AnimatePresence>
@@ -222,5 +195,12 @@ const Quiz: React.FC = () => {
     </section>
   );
 };
+
+const SummaryItem: React.FC<{ label: string, value: string }> = ({ label, value }) => (
+  <li className="flex justify-between items-center text-sm">
+    <span className="text-gray-400">{label}:</span>
+    <span className="text-white font-medium text-right">{value}</span>
+  </li>
+);
 
 export default Quiz;

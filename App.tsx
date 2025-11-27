@@ -28,9 +28,9 @@ const App: React.FC = () => {
       {currentView === 'home' ? (
         <main>
           <Hero />
+          <Quiz />
           <Testimonials />
           <PurchaseSteps />
-          <Quiz />
           <TechScroll />
           <FAQ />
         </main>

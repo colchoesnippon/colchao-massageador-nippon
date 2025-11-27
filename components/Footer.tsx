@@ -11,11 +11,11 @@ const Footer: React.FC = () => {
           <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
             Seu novo padrão <br /> de sono começa agora.
           </h2>
-          <a 
-            href="https://wa.me/5543988688677" 
+          <a
+            href="https://wa.me/5543988688677"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-200 transition-all flex items-center gap-2 group"
+            className="mt-8 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-200 transition-all flex items-center gap-2 group cursor-pointer inline-flex"
           >
             Falar com um especialista <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
           </a>
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                       Ivaiporã – Paraná, CEP: 86870-000
                     </span>
                  </a>
-                 <a href="tel:+5543988688677" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group/link">
+                 <a href="https://wa.me/5543988688677" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group/link">
                     <Phone className="text-zinc-600 group-hover/link:text-amber-500 transition-colors" size={20} />
                     <span className="text-sm font-medium">43 98868-8677</span>
                  </a>
