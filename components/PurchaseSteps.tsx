@@ -27,7 +27,7 @@ const steps = [
   {
     id: 4,
     title: "Pagamento na Entrega",
-    description: "Para PR, SC e RS (consulte disponibilidade da cidade), você só paga quando o produto chegar na sua casa. Conferiu, gostou, pagou.",
+    description: "Para PR, SC, RS e SP (consulte disponibilidade da cidade), você só paga quando o produto chegar na sua casa. Conferiu, gostou, pagou.",
     icon: <Wallet size={28} />,
     highlight: "Risco Zero"
   }

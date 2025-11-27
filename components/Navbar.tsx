@@ -23,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = () => {
              
              <div className="flex items-center gap-2">
                <Truck size={12} className="text-amber-500" />
-               <span>Frete Grátis para <strong className="text-white">PR, SC e RS</strong></span>
+               <span>Frete Grátis para <strong className="text-white">PR, SC, RS e SP</strong></span>
              </div>
 
              <div className="hidden md:block w-1 h-1 rounded-full bg-gray-600"></div>

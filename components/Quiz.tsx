@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ArrowLeft, CheckCircle, FileText, ArrowRight } from 'lucide-react';
+import { ChevronRight, ArrowLeft, CheckCircle, FileText, ArrowRight, Truck, Wallet, CreditCard } from 'lucide-react';
 import { QuizData } from '../types';
 
 const questions = [
@@ -105,7 +105,7 @@ const Quiz: React.FC = () => {
         </div>
 
         {/* Quiz Card */}
-        <div className="max-w-3xl mx-auto bg-black/60 backdrop-blur-xl rounded-[2.5rem] border border-white/10 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        <div className="max-w-3xl mx-auto mb-16 bg-black/60 backdrop-blur-xl rounded-[2.5rem] border border-white/10 p-8 md:p-12 shadow-2xl relative overflow-hidden">
           
           {/* Subtle shine effect on card */}
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent opacity-50" />
@@ -191,6 +191,37 @@ const Quiz: React.FC = () => {
             </AnimatePresence>
           </div>
         </div>
+
+        {/* HIGHLIGHTS SECTION BELOW QUIZ */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+           {/* Highlight 1 */}
+           <div className="bg-zinc-800/30 border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-zinc-800/50 transition-colors">
+              <div className="bg-amber-500/10 p-4 rounded-full text-amber-500 mb-4">
+                 <Truck size={24} />
+              </div>
+              <h4 className="text-white font-bold mb-1">FRETE GRÁTIS</h4>
+              <p className="text-gray-400 text-sm">SP, PR, SC E RS</p>
+           </div>
+           
+           {/* Highlight 2 */}
+           <div className="bg-zinc-800/30 border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-zinc-800/50 transition-colors">
+              <div className="bg-green-500/10 p-4 rounded-full text-green-500 mb-4">
+                 <Wallet size={24} />
+              </div>
+              <h4 className="text-white font-bold mb-1">PAGUE NA ENTREGA</h4>
+              <p className="text-gray-400 text-sm">CONSULTAR CIDADES</p>
+           </div>
+           
+           {/* Highlight 3 */}
+           <div className="bg-zinc-800/30 border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center hover:bg-zinc-800/50 transition-colors">
+              <div className="bg-blue-500/10 p-4 rounded-full text-blue-500 mb-4">
+                 <CreditCard size={24} />
+              </div>
+              <h4 className="text-white font-bold mb-1">12X SEM JUROS</h4>
+              <p className="text-gray-400 text-sm">CARTÃO DE CRÉDITO</p>
+           </div>
+        </div>
+
       </div>
     </section>
   );

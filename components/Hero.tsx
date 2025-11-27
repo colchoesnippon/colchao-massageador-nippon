@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
                     </div>
                     <div className="text-left">
                       <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Frete Grátis</div>
-                      <div className="text-sm font-bold text-white leading-tight">Paraná, Santa Catarina <br/> e Rio Grande do Sul</div>
+                      <div className="text-sm font-bold text-white leading-tight">SP, PR, SC e RS</div>
                     </div>
                  </div>
                  <div className="flex items-center gap-4 bg-black/20 p-3 rounded-xl border border-white/5 hover:border-white/10 transition-colors">
