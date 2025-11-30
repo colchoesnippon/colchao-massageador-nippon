@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             }}
             className="group relative bg-[#25D366] text-black font-bold px-10 py-5 rounded-full hover:bg-[#20bd5a] transition-all flex items-center gap-3 text-lg md:text-xl shadow-[0_0_30px_rgba(37,211,102,0.3)] hover:shadow-[0_0_50px_rgba(37,211,102,0.6)] hover:-translate-y-1 cursor-pointer"
           >
-            Receber Oferta Agora <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
+            Saiba Mais <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform"/>
           </a>
 
           <p className="text-gray-500 text-xs mt-6 opacity-60 hover:opacity-100 transition-opacity cursor-default">
